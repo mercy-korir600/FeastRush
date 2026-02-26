@@ -18,8 +18,12 @@
         "name": "next"
       }
     ],
+     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@users/*": ["./app/users/*"],
+      "@restaurant-admin/*": ["./app/restaurant-admin/*"],
+      "@system-admin/*": ["./app/system-admin/*"],
+      "@/*": ["./app/*"]
     }
   },
   "include": [

@@ -1,26 +1,178 @@
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+@theme {
+  --color-background: hsl(30 33% 98%);
+  --color-foreground: hsl(20 20% 14%);
+  --color-card: hsl(30 25% 97%);
+  --color-card-foreground: hsl(20 20% 14%);
+  --color-border: hsl(30 15% 88%);
+  --color-input: hsl(30 15% 88%);
+  --color-ring: hsl(14 90% 58%);
+
+  --color-primary: hsl(14 90% 58%);
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: hsl(30 25% 93%);
+  --color-secondary-foreground: hsl(20 20% 20%);
+
+  --color-muted: hsl(30 15% 93%);
+  --color-muted-foreground: hsl(20 10% 50%);
+
+  --color-accent: hsl(40 95% 55%);
+  --color-accent-foreground: hsl(20 20% 14%);
+
+  --color-destructive: hsl(0 84% 60%);
+  --color-destructive-foreground: #ffffff;
+
+  --color-success: hsl(145 63% 42%);
+  --color-warning: hsl(40 95% 55%);
+
+
+  --color-sidebar-background: hsl(30 25% 97%);
+  --color-sidebar-foreground: hsl(20 20% 14%);
+  --color-sidebar-primary: hsl(14 90% 58%);
+  --color-sidebar-accent: hsl(30 25% 93%);
+  --color-sidebar-border: hsl(30 15% 88%);
+
+
+  --color-gradient-start: hsl(14 90% 58%);
+  --color-gradient-mid: hsl(30 95% 55%);
+  --color-gradient-end: hsl(40 95% 55%);
+
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  --text-title: 2.5rem;
+  --text-subtitle: 1.5rem;
+  --text-body: 1rem;
+
+  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
+  --radius-sm: 0.375rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-background text-foreground antialiased;
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+* {
+  @apply border-border;
+}
+
+
+
+.title {
+  @apply text-primary font-bold leading-tight;
+  font-size: var(--text-title);
+}
+
+.subtitle {
+  @apply text-secondary font-semibold leading-snug;
+  font-size: var(--text-subtitle);
+}
+
+.body-text {
+  @apply text-foreground leading-relaxed;
+  font-size: var(--text-body);
+}
+
+
+
+.glass {
+  @apply bg-card/80 backdrop-blur-md border border-border/50;
+}
+
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-gradient-start),
+    var(--color-gradient-end)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-brand-gradient {
+  background-image: linear-gradient(
+    135deg,
+    var(--color-gradient-start),
+    var(--color-gradient-mid),
+    var(--color-gradient-end)
+  );
+}
+
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #f8f1f1;
+  border-radius: 5px;
+}
+
+.custom-scrollbar {
+  direction: rtl;
+}
+
+.custom-scrollbar > * {
+  direction: ltr;
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+input[type="checkbox"].custom-checkbox {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background-color: #fff !important;
+  border: 2.5px solid var(--color-primary) !important;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.375rem;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  box-shadow: 0 0 0 2px rgba(85,210,247,0.15);
+}
+
+input[type="checkbox"].custom-checkbox:checked {
+  background-color: #fff !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(85,210,247,0.25) !important;
+}
+
+input[type="checkbox"].custom-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 0.35rem;
+  top: 0.1rem;
+  width: 0.35rem;
+  height: 0.7rem;
+  border: solid var(--color-primary);
+  border-width: 0 0.2rem 0.2rem 0;
+  transform: rotate(45deg);
+  display: block;
 }
