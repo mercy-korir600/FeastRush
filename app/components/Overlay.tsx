@@ -1,8 +1,8 @@
-interface Props {
+interface OverlayProps {
   onClose: () => void;
 }
 
-export default function Overlay({ onClose }: Props) {
+export default function Overlay({ onClose }: OverlayProps) {
   return (
     <div
       onClick={onClose}

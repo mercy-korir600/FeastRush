@@ -1,9 +1,9 @@
-interface Props {
+interface MenuItemProps {
   item: any;
   addToCart: (item: any) => void;
 }
 
-export default function MenuItem({ item, addToCart }: Props) {
+export default function MenuItem({ item, addToCart }: MenuItemProps) {
   return (
     <div className="flex justify-between items-center bg-white p-4 rounded-xl shadow-sm">
       <div>

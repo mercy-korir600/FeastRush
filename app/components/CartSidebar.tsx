@@ -1,4 +1,4 @@
-interface Props {
+interface CartSidebarProps {
   cart: any[];
   cartOpen: boolean;
   setCartOpen: (val: boolean) => void;
@@ -10,7 +10,7 @@ export default function CartSidebar({
   cartOpen,
   setCartOpen,
   setCart,
-}: Props) {
+}: CartSidebarProps) {
   const subtotal = cart.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
@@ -54,7 +54,7 @@ export default function CartSidebar({
           </div>
 
           <div className="flex justify-between">
-            <span>Delivery</span>
+            <span>Delivery Fee</span>
             <span>KSh {delivery}</span>
           </div>
 
