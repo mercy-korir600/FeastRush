@@ -3,7 +3,6 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    // <main className="bg-white min-h-screen text-gray-800">
       <section className="grid md:grid-cols-2 gap-12 px-10 py-20 items-center max-w-7xl mx-auto">
         
         <div>
@@ -35,6 +34,5 @@ export default function Hero() {
 
       </section>
 
-    // </main>
   );
 }
