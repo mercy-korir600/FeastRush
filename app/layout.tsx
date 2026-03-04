@@ -6,6 +6,7 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
+  
 });
 
 const dmSans = DM_Sans({
