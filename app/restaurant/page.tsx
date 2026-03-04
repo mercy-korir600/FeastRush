@@ -13,7 +13,7 @@ export default function RestaurantPage() {
   const menu = [
     {
       id: 1,
-      name: "Margherita Pizza",
+      name: "Magharitta Pizza",
       description:
         "Fresh mozzarella, tomato sauce, basil on hand-tossed dough",
       price: 1499,
