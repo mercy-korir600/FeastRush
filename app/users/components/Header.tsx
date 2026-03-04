@@ -3,51 +3,68 @@
 import { MapPin, ShoppingBag, Search, User } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { useCounty } from "@users/hooks/useCounty";
 
 const Navbar = () => {
-  const [totalItems, setTotalItems] = useState(0);
+  const [totalItems] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
+  const { counties, selectedCounty, handleCountyChange } = useCounty();
+
   return (
-    <nav className="sticky top-0 z-50 glass">
+    <nav className="sticky top-0 z-50 backdrop-blur-lg bg-secondary/70 border-b">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
+        
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg gradient-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-display font-bold text-lg">
-              
-            </span>
-          </div>
-          <span className="font-display font-bold text-xl text-primary">
+         
+          <span className="font-bold text-xl text-primary">
             FeastRush
           </span>
         </Link>
 
         {/* Search Bar */}
-        <div className="hidden md:flex items-center gap-2  bg-secondary rounded-full px-4 py-2 flex-1 max-w-md mx-8">
+        <div className="hidden md:flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2 flex-1 max-w-md mx-8">
+
           <MapPin className="w-4 h-4 text-primary" />
-          <span className="text-sm text-muted-foreground">Kakamega, Kenya</span>
-          <span className="text-border mx-2">|</span>
+
+          <select
+            value={selectedCounty.id}
+            onChange={(e) => handleCountyChange(Number(e.target.value))}
+            className="bg-transparent text-sm outline-none text-gray-600 cursor-pointer"
+          >
+            {counties.map((county) => (
+              <option key={county.id} value={county.id}>
+                {county.name}, Kenya
+              </option>
+            ))}
+          </select>
+
+          <span className="mx-2 text-gray-300">|</span>
+
           <Search className="w-4 h-4 text-primary" />
+
           <input
             type="text"
             placeholder="Search restaurants or dishes..."
-            className="bg-transparent text-sm outline-none flex-1 text-foreground placeholder:text-muted-foreground"
+            className="bg-transparent text-sm outline-none flex-1 text-gray-800 placeholder:text-gray-400"
           />
         </div>
 
         {/* User & Cart */}
         <div className="flex items-center gap-3">
-          <button className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-muted transition-colors">
-            <User className="w-5 h-5 text-foreground" />
+          <button className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+            <User className="w-5 h-5 text-gray-700" />
           </button>
+
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="relative w-10 h-10 rounded-full gradient-primary flex items-center justify-center hover:opacity-90 transition-opacity"
+            className="relative w-10 h-10 rounded-full bg-primary flex items-center justify-center"
           >
-            <ShoppingBag className="w-5 h-5 text-primary-foreground" />
+            <ShoppingBag className="w-5 h-5 text-secondary" />
+
             {totalItems > 0 && (
-              <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-accent text-accent-foreground text-xs font-bold flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 text-white text-xs font-bold flex items-center justify-center">
                 {totalItems}
               </span>
             )}
