@@ -33,7 +33,7 @@ export default function RestaurantPage() {
       id: 3,
       name: "Caesar Salad",
       description:
-        "Romaine, croutons, parmesan, Caesar dressing",
+        "croutons, parmesan, Caesar dressing",
       price: 899,
       category: "Salads",
       image: "/salad1.jpg",
