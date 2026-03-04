@@ -12,6 +12,8 @@
   --color-ring: hsl(14 90% 58%);
   --color-green: hsl(134 72% 45%);
   --color-gray: hsl(210 16% 91%);
+  --gray-500: lch(48% 6 260);
+
 
   --color-primary: hsl(14 90% 58%);
   --color-primary-foreground: #ffffff;
