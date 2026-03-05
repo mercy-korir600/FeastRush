@@ -11,15 +11,15 @@ export default function RestaurantPage() {
   const [categoryFilter, setCategoryFilter] = useState("All");
 
   const menu = [
-    {
-      id: 1,
-      name: "Magharitta Pizza",
-      description:
-        "Fresh mozzarella, tomato sauce, basil on hand-tossed dough",
-      price: 1499,
-      category: "Pizza",
-      image: "/pizza1.jpg",
-    },
+{
+  id: 1,
+  name: "Margherita Pizza",
+  description:
+    "Fresh mozzarella, tomato sauce, basil on hand-tossed dough",
+  price: 1499,
+  category: "Pizza",
+  image: "/pizza1.jpg",
+},
     {
       id: 2,
       name: "Pepperoni Pizza",
@@ -29,24 +29,24 @@ export default function RestaurantPage() {
       category: "Pizza",
       image: "/pizza2.jpg",
     },
-    {
-      id: 3,
-      name: "Caesar Salad",
-      description:
-        "croutons, parmesan, Caesar dressing",
-      price: 899,
-      category: "Salads",
-      image: "/salad1.jpg",
-    },
-    {
-      id: 4,
-      name: "Tiramisa",
-      description:
-        "Classic Italian coffee-flavored dessert",
-      price: 599,
-      category: "Desserts",
-      image: "/dessert1.webp",
-    },
+{
+  id: 3,
+  name: "Caesar Salad",
+  description:
+    "Romaine, croutons, parmesan, Caesar dressing",
+  price: 899,
+  category: "Salads",
+  image: "/salad1.jpg",
+},
+{
+  id: 4,
+  name: "Tiramisu",
+  description:
+    "Classic Italian coffee-flavored dessert",
+  price: 599,
+  category: "Desserts",
+  image: "/dessert1.webp",
+},
     {
       id: 5,
       name: "Chocolate Cake",
@@ -175,16 +175,16 @@ export default function RestaurantPage() {
   ))}
 </div>
         </div>
-      </div>
+</div>
 
-      {/* Dark Overlay */}
-      {cartOpen && (
-        <Overlay
-          onClose={() => setCartOpen(false)}
-        />
-      )}
+{/* Dark Overlay */}
+{cartOpen && (
+  <Overlay
+    onClose={() => setCartOpen(false)}
+  />
+)}
 
-      {/* Cart Sidebar */}
+{/* Cart Sidebar */}
       <CartSidebar
         cart={cart}
         cartOpen={cartOpen}
