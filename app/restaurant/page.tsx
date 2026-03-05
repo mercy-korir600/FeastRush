@@ -40,7 +40,7 @@ export default function RestaurantPage() {
     },
     {
       id: 4,
-      name: "Tiramisu",
+      name: "Tiramisa",
       description:
         "Classic Italian coffee-flavored dessert",
       price: 599,

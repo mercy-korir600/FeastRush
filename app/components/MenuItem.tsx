@@ -8,7 +8,7 @@ export default function MenuItem({ item, addToCart }: MenuItemProps) {
   return (
     <div className="flex justify-between items-center bg-white p-4 rounded-xl shadow-sm">
 
-      {/* LEFT SIDE: Text */}
+      
       <div className="flex-1">
         <h2 className="font-semibold text-lg">{item.name}</h2>
         <p className="text-gray-500 text-sm">{item.description}</p>
@@ -17,7 +17,7 @@ export default function MenuItem({ item, addToCart }: MenuItemProps) {
         </p>
       </div>
 
-      {/* RIGHT SIDE: Image + Button */}
+      
       <div className="flex items-center gap-4">
         
         {/* Image */}

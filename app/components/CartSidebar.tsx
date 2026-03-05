@@ -23,7 +23,7 @@ export default function CartSidebar({
   const delivery = 299;
   const total = subtotal + delivery;
 
-  // Increase quantity
+  // Add quantity
   const handleIncrease = (id: number) => {
     setCart(
       cart.map((item) =>
@@ -34,7 +34,7 @@ export default function CartSidebar({
     );
   };
 
-  // Decrease quantity
+  // Reduce quantity
   const handleDecrease = (id: number) => {
     setCart(
       cart.map((item) =>
@@ -81,7 +81,7 @@ export default function CartSidebar({
               key={item.id}
               className="flex items-center justify-between p-4 bg-gray-50 border border-gray-200 rounded-xl hover:bg-gray-100 transition"
             >
-              {/* LEFT: Image + Details */}
+              
               <div className="flex items-center gap-4">
                 <img
                   src={item.image}
@@ -99,7 +99,7 @@ export default function CartSidebar({
                 </div>
               </div>
 
-              {/* RIGHT: Controls */}
+              
               <div className="flex items-center gap-2">
                 {/* Decrease */}
                 <button
@@ -134,7 +134,7 @@ export default function CartSidebar({
           ))}
         </div>
 
-        {/* Summary Section */}
+        
         <div className="border-t pt-6 space-y-3">
           <div className="flex justify-between text-gray-600">
             <span>Subtotal</span>
@@ -153,12 +153,12 @@ export default function CartSidebar({
             </span>
           </div>
 
-          {/* Place Order */}
+          
           <button className="w-full mt-4 bg-orange-500 text-white py-3 rounded-xl hover:bg-orange-600 transition font-semibold">
             Place Order - KSh {total}
           </button>
 
-          {/* Clear Cart */}
+        
           <button
             onClick={() => setCart([])}
             className="w-full mt-2 bg-white text-gray-500 py-3 rounded-xl border border-gray-300 hover:text-orange-600 transition"
