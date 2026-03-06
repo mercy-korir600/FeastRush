@@ -52,7 +52,7 @@ export default function CartSidebar({
 
   return (
     <div
-      className={`fixed top-0 right-0 h-full bg-white shadow-2xl z-50 w-[36rem] transform transition-transform duration-300 ${
+      className={`fixed top-0 right-0 h-full bg-card shadow-2xl z-50 w-[36rem] transform transition-transform duration-300 ${
         cartOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >
@@ -62,7 +62,7 @@ export default function CartSidebar({
           <h2 className="text-2xl font-bold">Your Cart</h2>
           <button
             onClick={() => setCartOpen(false)}
-            className="text-gray-500 hover:text-gray-800 transition text-lg"
+            className="text-muted-foreground hover:text-foreground transition text-lg"
           >
             ✕
           </button>
@@ -71,7 +71,7 @@ export default function CartSidebar({
         {/* Cart Items */}
         <div className="flex-1 space-y-4 overflow-y-auto pr-2">
           {cart.length === 0 && (
-            <p className="text-gray-400 text-center mt-10">
+            <p className="text-muted-foreground text-center mt-10">
               Your cart is empty 🛒
             </p>
           )}
@@ -79,7 +79,7 @@ export default function CartSidebar({
           {cart.map((item) => (
             <div
               key={item.id}
-              className="flex items-center justify-between p-4 bg-gray-50 border border-gray-200 rounded-xl hover:bg-gray-100 transition"
+              className="flex items-center justify-between p-4 bg-muted border border-border rounded-xl hover:bg-secondary transition"
             >
               
               <div className="flex items-center gap-4">
@@ -93,7 +93,7 @@ export default function CartSidebar({
                   <p className="text-lg font-semibold">
                     {item.name}
                   </p>
-                  <p className="text-sm font-bold text-orange-500">
+                  <p className="text-sm font-bold text-primary">
                     KSh {item.price * item.quantity}
                   </p>
                 </div>
@@ -104,7 +104,7 @@ export default function CartSidebar({
                 {/* Decrease */}
                 <button
                   onClick={() => handleDecrease(item.id)}
-                  className="w-7 h-7 flex items-center justify-center bg-gray-200 text-gray-800 rounded-full hover:bg-gray-300 transition"
+                  className="w-7 h-7 flex items-center justify-center bg-secondary text-foreground rounded-full hover:bg-muted transition"
                 >
                   −
                 </button>
@@ -117,7 +117,7 @@ export default function CartSidebar({
                 {/* Increase */}
                 <button
                   onClick={() => handleIncrease(item.id)}
-                  className="w-7 h-7 flex items-center justify-center bg-orange-500 text-white rounded-full hover:bg-orange-600 transition"
+                  className="w-7 h-7 flex items-center justify-center bg-primary text-primary-foreground rounded-full hover:opacity-90 transition"
                 >
                   +
                 </button>
@@ -125,7 +125,7 @@ export default function CartSidebar({
                 {/* Delete */}
                 <button
                   onClick={() => handleDelete(item.id)}
-                  className="w-7 h-7 flex items-center justify-center bg-gray-200 text-red-500 rounded-full hover:bg-red-100 transition"
+                  className="w-7 h-7 flex items-center justify-center bg-secondary text-destructive rounded-full hover:opacity-80 transition"
                 >
                   <FaTrash className="text-sm" />
                 </button>
@@ -136,32 +136,32 @@ export default function CartSidebar({
 
         
         <div className="border-t pt-6 space-y-3">
-          <div className="flex justify-between text-gray-600">
+          <div className="flex justify-between text-muted-foreground">
             <span>Subtotal</span>
             <span>KSh {subtotal}</span>
           </div>
 
-          <div className="flex justify-between text-gray-600">
+          <div className="flex justify-between text-muted-foreground">
             <span>Delivery Fee</span>
             <span>KSh {delivery}</span>
           </div>
 
           <div className="flex justify-between font-bold text-xl">
             <span>Total</span>
-            <span className="text-orange-500">
+            <span className="text-primary">
               KSh {total}
             </span>
           </div>
 
           
-          <button className="w-full mt-4 bg-orange-500 text-white py-3 rounded-xl hover:bg-orange-600 transition font-semibold">
+          <button className="w-full mt-4 bg-primary text-primary-foreground py-3 rounded-xl hover:opacity-90 transition font-semibold">
             Place Order - KSh {total}
           </button>
 
         
           <button
             onClick={() => setCart([])}
-            className="w-full mt-2 bg-white text-gray-500 py-3 rounded-xl border border-gray-300 hover:text-orange-600 transition"
+            className="w-full mt-2 bg-card text-muted-foreground py-3 rounded-xl border border-border hover:text-primary transition"
           >
             Clear Cart
           </button>
