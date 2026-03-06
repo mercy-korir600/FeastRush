@@ -2,11 +2,6 @@
 
 import { motion } from "framer-motion";
 import { categories } from "@/users/hero/data/restaurant";
-import Image from "next/image";
-
-
-import useRestaurants from "@/users/hero/hooks/useRestaurants";
-
 
 export default function CategoryFilter({ active, setActive }: { active: string; setActive: (category: string) => void }) {
   return (
