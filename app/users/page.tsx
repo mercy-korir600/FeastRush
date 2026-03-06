@@ -1,9 +1,9 @@
-
+import RestaurantPage from "./feature/restaurant/components/Restaurants";
 export default function UsersPage() {
   return (
-    <div className="p-4">
+    <div>
   
-
+<RestaurantPage/>
      
     </div>
   );
